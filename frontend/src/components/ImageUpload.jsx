@@ -74,8 +74,7 @@ export default function ImageUpload({ onImageSubmit }) {
     setError(null);
     
     try {
-      const API_URL = 'http://localhost:8000';
-      
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';      
       const formData = new FormData();
       
       if (uploadMethod === 'file' && file) {
@@ -90,7 +89,7 @@ export default function ImageUpload({ onImageSubmit }) {
         throw new Error('No image provided');
       }
       
-      const endpoint = `${API_URL}/api/verify`;
+      const endpoint = API_URL;
       console.log(`Sending verification request to ${endpoint}`);
       
       const response = await fetch(endpoint, {
