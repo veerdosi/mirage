@@ -1,0 +1,47 @@
+# Web Framework
+fastapi
+uvicorn[standard]
+pydantic
+python-multipart
+
+# HTTP and API Client
+aiohttp
+requests
+
+# Environment Variables
+python-dotenv
+
+# Image Processing
+Pillow
+opencv-python
+exifread
+numpy
+
+# Machine Learning (for manipulation & deepfake detection)
+scikit-learn
+scikit-image
+scipy
+
+# Web Scraping and Parsing (for fact checking)
+beautifulsoup4
+lxml
+
+# Natural Language Processing (for keyword extraction)
+nltk
+
+# Development Tools
+pytest
+black
+flake8
+
+# Logging and Monitoring
+loguru
+
+# CORS and Security
+starlette
+python-jose[cryptography]
+passlib[bcrypt]
+
+
+
+cloudinary
