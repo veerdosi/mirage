@@ -37,7 +37,7 @@ export async function verifyImage(image, sourceType) {
       try {
         const errorData = await response.json();
         errorDetail = errorData.detail || errorData.message || String(response.status);
-      } catch (e) {
+      } catch (e) { // eslint-disable-line @typescript-eslint/no-unused-vars
         errorDetail = `HTTP error ${response.status}`;
       }
       
