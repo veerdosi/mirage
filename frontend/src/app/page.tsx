@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import { useState, useEffect } from 'react';
 import { AlertTriangle, Shield, ArrowUpCircle } from 'lucide-react';
@@ -6,7 +7,7 @@ import ResultsDashboard from '@/components/ResultsDashboard';
 import { checkApiHealth } from '@/lib/api';
 
 export default function Home() {
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [apiStatus, setApiStatus] = useState({ healthy: true, message: '' });
 
@@ -30,15 +31,18 @@ export default function Home() {
     checkHealth();
   }, []);
 
-  const handleImageSubmit = (data) => {
+  const handleImageSubmit = (data: any) => {
     setResults(data);
-    // In a real app, you might want to scroll to the results
+    // Scroll to the top to view the results
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleAnalyzeAnother = () => {
     setResults(null);
   };
+
+  // Since ResultsDashboard is a JS component without explicit types, we cast it to any.
+  const ResultsDashboardTyped = ResultsDashboard as any;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -85,7 +89,7 @@ export default function Home() {
           </div>
         ) : (
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <ResultsDashboard
+            <ResultsDashboardTyped
               results={results}
               onAnalyzeAnother={handleAnalyzeAnother}
             />
